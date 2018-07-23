@@ -19,7 +19,7 @@ MASTER_SITE_SUBDIR=	gmt gmt/legacy
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${GSHHG_DISTNAME}.tar.gz:gshhg
 
-MAINTAINER=	lbartoletti@tuxfamily.org
+MAINTAINER=	
 COMMENT=	Generic Mapping Tools - data processing and display software package
 
 LICENSE=	GPLv2 LGPL3
@@ -32,7 +32,8 @@ RUN_DEPENDS=	bash:shells/bash
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
-USES=		autoreconf:build gmake pkgconfig shebangfix tar:bzip2
+USES=		cmake:outsource
+CMAKE_SOURCE_PATH=	${WRKSRC}/build
 SHEBANG_FILES=	gmtswitch doc/examples/*/*.sh src/GMT.in \
 		src/gmt_shell_functions.sh.in src/gmtget.in \
 		src/gmtlogo.in src/isogmt.in
