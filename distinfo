@@ -1,5 +1,7 @@
-TIMESTAMP = 1532367716
+TIMESTAMP = 1532509695
 SHA256 (gmt-5.4.4-src.tar.gz) = 1baf3d6b049db7cc6cbd7506524cdca45c41e3bfffb24814245fc18f5a8626c2
 SIZE (gmt-5.4.4-src.tar.gz) = 118099492
 SHA256 (gshhg-gmt-2.3.7.tar.gz) = 9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f
 SIZE (gshhg-gmt-2.3.7.tar.gz) = 57052180
+SHA256 (dcw-gmt-1.1.4.tar.gz) = 8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3
+SIZE (dcw-gmt-1.1.4.tar.gz) = 21117179
