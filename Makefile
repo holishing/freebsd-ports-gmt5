@@ -29,10 +29,19 @@ LICENSE_COMB=	multi
 LICENSE_DISTFILES_GPLv3=	${DISTNAME}${EXTRACT_SUFX}
 LICENSE_DISTFILES_LGPL3=	${GSHHG_DISTNAME}${EXTRACT_SUFX}
 
-LIB_DEPENDS=	libnetcdf.so:science/netcdf
+LIB_DEPENDS=	libnetcdf.so:science/netcdf \
+		libcurl.so:ftp/curl \
+		libpcre.so:devel/pcre
 RUN_DEPENDS=	bash:shells/bash
 
 WRKSRC=		${WRKDIR}/gmt-${PORTVERSION}
+
+DATADIR=	${PREFIX}/share/gmt
+
+NO_MTREE=	yes
+
+USES=shebangfix
+SHEBANG_REGEX=	./scripts/.*\.(sh|pl|cgi)
 
 SHEBANG_FILES=	gmtswitch doc/examples/*/*.sh src/GMT.in \
 		src/gmt_shell_functions.sh.in src/gmtget.in \
@@ -43,8 +52,9 @@ USES=		cmake:outsource
 CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 		-DCMAKE_C_FLAGS=-fstrict-aliasing \
 		-DCMAKE_INSTALL_PREFIX=${PREFIX} \
-		-DDCW_ROOT=${PREFIX}/share/gmt/dcw \
-		-DGSHHG_ROOT=${PREFIX}/share/gmt/gshhg \
+		-DGMT_DATADIR= ${DATADIR} \
+		-DDCW_ROOT=${DATADIR}/dcw \
+		-DGSHHG_ROOT=${DATADIR}/gshhg \
 		-DNETCDF_ROOT=${PREFIX} \
 		-DFFTW3_ROOT=${PREFIX} \
 		-DGDAL_ROOT=${PREFIX} \
@@ -54,5 +64,8 @@ CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 
 STRIP_BINS=	gmt gmtswitch isogmt
 STRIP_LIBS=	libgmt.so.4 libgmtps.so.4 libpsl.so.4
+
+echo:
+	@echo ${INSTALL_PROGRAM}
 
 .include <bsd.port.mk>
