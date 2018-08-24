@@ -47,13 +47,13 @@ USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 		-DCMAKE_C_FLAGS=-fstrict-aliasing \
 		-DCMAKE_INSTALL_PREFIX=${PREFIX} \
-		-DDCW_ROOT=${PREFIX}/share/${PORTNAME}/dcw \
-		-DGSHHG_ROOT=${PREFIX}/share/${PORTNAME}/gshhg \
+		-DDCW_ROOT=share/${PORTNAME}/dcw \
+		-DGSHHG_ROOT=share/${PORTNAME}/gshhg \
 		-DGMT_INSTALL_MODULE_LINKS=off \
 		-DGMT_INSTALL_TRADITIONAL_FOLDERNAMES=off \
-		-DGMT_DATADIR=${PREFIX}/share/${PORTNAME} \
-		-DGMT_DOCDIR=${PREFIX}/share/doc/${PORTNAME} \
-		-DGMT_MANDIR=${PREFIX}/share/doc/${PORTNAME}/man \
+		-DGMT_DATADIR=share/${PORTNAME} \
+		-DGMT_DOCDIR=share/doc/${PORTNAME} \
+		-DGMT_MANDIR=share/doc/${PORTNAME}/man \
 		-DGMT_INSTALL_NAME_SUFFIX=-gmt5
 
 #STRIP_BINS=	gmtff gmtswitch isogmt
